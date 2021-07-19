@@ -25,7 +25,7 @@ function UserModal({loginUser}) {
             className="absolute top-20 right-0 bg-white z-20 shadow-xl w-96 rounded-lg flex flex-col items-center py-10">
             <div className="flex flex-col items-center w-full pb-5 border-b">
                 <div
-                    className={`rounded-full ${loginUser.color} w-24 h-24 flex items-center justify-center text-2xl font-semiBold text-white`}>
+                    className={`rounded-full ${loginUser.color} w-24 h-24 flex items-center justify-center text-2xl font-semiBold text-white z-30`}>
                     {loginUser.nickName}
                 </div>
                 <div className="py-2 text-xl font-semibold">{loginUser.name}</div>
@@ -44,7 +44,7 @@ function UserModal({loginUser}) {
                                   color
                               }
                           }}>
-                        <li className="flex items-center cursor-pointer border-b py-3 pl-10 hover:bg-gray-100"
+                        <li className="flex items-center cursor-pointer border-b py-3 pl-10 hover:bg-gray-100 z-30"
                             onClick={() => dispatch(logout())}>
                             <div
                                 className={`${color} rounded-full w-10 h-10 flex items-center justify-center text-l font-semiBold text-white mr-5`}>{nickName}</div>

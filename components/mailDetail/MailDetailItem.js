@@ -39,7 +39,7 @@ function MailDetailItem({id, sender, body, date, receiver}) {
         <div className="flex flex-col py-7 ">
             <div className="flex items-center">
                 <div
-                    className={`rounded-full ${sender.color} w-14 h-14 flex items-center justify-center text-xl ml-3 font-semiBold text-white ml-2 cursor-pointer`}>
+                    className={`rounded-full ${sender.color} w-14 h-14 flex items-center justify-center text-xl ml-3 font-semiBold text-white ml-2 cursor-pointer z-30`}>
                     {sender.nickName}
                 </div>
                 <div className="flex flex-col mx-8 w-11/12">

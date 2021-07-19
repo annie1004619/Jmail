@@ -65,7 +65,7 @@ function Reply({sender, setReply, body, threadId}) {
     return (
         <div className="flex items-start">
             <div
-                className={`rounded-full ${loginUser.color} w-14 h-14 flex items-center justify-center text-xl font-semiBold text-white ml-2 mt-5 cursor-pointer`}>
+                className={`rounded-full ${loginUser.color} w-14 h-14 flex items-center justify-center text-xl font-semiBold text-white ml-2 mt-5 cursor-pointer z-30`}>
                 {loginUser.nickName}
             </div>
             <div className="flex flex-col mx-8 w-11/12 shadow-xl rounded-lg px-6 py-5">

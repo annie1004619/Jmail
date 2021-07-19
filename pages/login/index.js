@@ -72,7 +72,7 @@ function Login() {
                 <div className="flex items-center border-2 px-3 py-1 rounded-full cursor-pointer"
                      onClick={() => router.push('/')}>
                     <div
-                        className={`${color} rounded-full w-7 h-7 flex items-center justify-center text-xs font-semiBold text-white mr-5`}>
+                        className={`${color} rounded-full w-7 h-7 flex items-center justify-center text-xs font-semiBold text-white mr-5 z-30`}>
                         {nickName}
                     </div>
                     <div className="flex items-end">
