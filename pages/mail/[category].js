@@ -73,7 +73,7 @@ export default function MailList({category}) {
                     {unReadToggle ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
                     <div className="ml-3">Unread</div>
                 </div>
-                {unReadToggle && unReadList.length === 0 && <div className="text-center pt-10">메일이 없습니다.</div>}
+                {unReadToggle && unReadList.length === 0 && <div className="text-center pt-10 text-sm">메일이 없습니다.</div>}
                 {unReadToggle && unReadList && unReadList.map(({id, sender, date, body}) =>
                     <MailItem key={id} id={id} body={body} date={date} sender={sender}/>)}
 
@@ -82,10 +82,9 @@ export default function MailList({category}) {
                     {elseToggle ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
                     <div className="ml-3">Everthing else</div>
                 </div>
-                {elseToggle && readList.length === 0 && <div className="text-center pt-10">메일이 없습니다.</div>}
+                {elseToggle && readList.length === 0 && <div className="text-center pt-10 text-sm">메일이 없습니다.</div>}
                 {elseToggle && readList && readList.map(({id, sender, date, body}) =>
                     <MailItem key={id} id={id} body={body} date={date} sender={sender}/>)}
-
             </Layout>
         )
     }
@@ -94,7 +93,7 @@ export default function MailList({category}) {
         return (
             <Layout>
                 <MailListHeader/>
-                {starList.length === 0 && <div className="text-center pt-10">별표 표시된 메일이 없습니다.</div>}
+                {starList.length === 0 && <div className="text-center pt-10 text-sm">별표 표시된 메일이 없습니다.</div>}
                 {starList && starList.map(({id, sender, date, body}) =>
                     <MailItem key={id} id={id} body={body} date={date} sender={sender}/>)}
             </Layout>
@@ -105,7 +104,7 @@ export default function MailList({category}) {
         return (
             <Layout>
                 <MailListHeader/>
-                {sentList.length === 0 && <div className="text-center pt-10">보낸 메일이 없습니다.</div>}
+                {sentList.length === 0 && <div className="text-center pt-10 text-sm">보낸 메일이 없습니다.</div>}
                 {sentList && sentList.map(({id, sender, date, body}) =>
                     <MailItem key={id} id={id} body={body} date={date} sender={sender}/>)}
             </Layout>

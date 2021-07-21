@@ -65,7 +65,8 @@ function ComposeModal({closeModal}) {
                 }
             })
         })
-
+        
+        alert('메일을 보냈습니다')
         setTitle('')
         setContent('')
         setReceiver('')
