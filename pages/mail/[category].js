@@ -69,7 +69,7 @@ export default function MailList({category}) {
             <Layout>
                 <MailListHeader/>
                 <div onClick={() => setUnReadToggle(!unReadToggle)}
-                     className="flex items-end text-xl cursor-pointer py-5 px-6 border-b">
+                     className="flex items-end text-sm cursor-pointer py-5 px-6 border-b">
                     {unReadToggle ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
                     <div className="ml-3">Unread</div>
                 </div>
@@ -78,7 +78,7 @@ export default function MailList({category}) {
                     <MailItem key={id} id={id} body={body} date={date} sender={sender}/>)}
 
                 <div onClick={() => setElseToggle(!elseToggle)}
-                     className="flex items-end text-xl cursor-pointer py-5 px-6 border-b">
+                     className="flex items-end text-sm cursor-pointer py-5 px-6 border-b">
                     {elseToggle ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
                     <div className="ml-3">Everthing else</div>
                 </div>
@@ -116,7 +116,7 @@ export default function MailList({category}) {
     return (
         <Layout>
             <MailListHeader/>
-            <div>{category}</div>
+            <div></div>
         </Layout>
     )
         ;

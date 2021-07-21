@@ -11,40 +11,49 @@ function Header() {
     const [modal, setModal] = useState(false)
 
     return (
-        <div className="flex items-center py-4 border-b justify-between relative">
-            <div className="flex items-center w-1/6">
-                <MdMenu className="mr-3 ml-6" size={30} color={`rgba(107, 114, 128, 1)`}/>
+        <div className="flex items-center py-4 border-b justify-between relative ">
+            <div className="flex items-center" style={{paddingRight: '30px'}}>
+                <div className="text-gray-500 ml-10" style={{width: '40px'}}>
+                    <MdMenu size={25}/>
+                </div>
                 <Link href="/mail/inbox">
-                    <a className="flex items-center ml-3">
-                        <Image
-                            priority
-                            src="/images/Gmail_logo.png"
-                            height={33}
-                            width={43}
-                            alt={`Jmail-logo`}
-                        />
-                        <p className="ml-5 text-3xl font-medium text-gray-500">Jmail</p>
+                    <a className="flex items-center">
+                        <div style={{width: '43px'}}>
+                            <Image
+                                priority
+                                src="/images/Gmail_logo.png"
+                                width={35}
+                                height={25}
+                                alt={`Jmail-logo`}
+                            />
+                        </div>
+                        <p className="ml-3 text-2xl font-medium text-gray-500">Jmail</p>
                     </a>
                 </Link>
             </div>
-            <div className="flex items-center bg-gray-100 px-6 py-4 rounded-md w-7/12 mr-10">
-                <HiOutlineSearch size={25} color={`rgba(107, 114, 128, 1)`} className="mr-5"/>
-                <input type="text" className="text-xl text-gray-500 bg-gray-100 w-11/12 focus:outline-none"
+            <div className="flex items-center bg-gray-100 px-6 py-3 rounded-md flex-1 mx-10">
+                <div className="" style={{width: '30px'}}>
+                    <HiOutlineSearch size={20} color={`rgba(107, 114, 128, 1)`} className="mr-5"/>
+                </div>
+                <input type="text" className="text-md text-gray-500 bg-gray-100 w-11/12 focus:outline-none"
                        placeholder="메일 검색"/>
-                <MdTune size={30} color={`rgba(107, 114, 128, 1)`}/>
+                <div style={{width: '32px'}}>
+                    <MdTune size={20} color={`rgba(107, 114, 128, 1)`}/>
+                </div>
             </div>
-            <div className="flex items-center pr-6 w-1/10">
-                <MdHelpOutline size={30} color={`rgba(107, 114, 128, 1)`} className="mx-2"/>
-                <MdSettings size={30} color={`rgba(107, 114, 128, 1)`} className="mx-2"/>
-                <MdApps size={30} color={`rgba(107, 114, 128, 1)`} className="mx-2"/>
+            <div className="flex items-center mr-3" style={{width: '175px'}}>
+                <MdHelpOutline size={20} color={`rgba(107, 114, 128, 1)`} className="mx-3"/>
+                <MdSettings size={20} color={`rgba(107, 114, 128, 1)`} className="mx-3"/>
+                <MdApps size={20} color={`rgba(107, 114, 128, 1)`} className="mx-3"/>
                 {loginUser && <div
-                    className={`rounded-full ${loginUser.color} w-10 h-10 flex items-center justify-center text-l font-semiBold text-white ml-2 cursor-pointer`}
+                    style={{backgroundColor: `${loginUser.color}`}}
+                    className={`rounded-full w-8 h-8 flex items-center justify-center text-sm font-semiBold text-white ml-3 cursor-pointer`}
                     onClick={() => setModal(!modal)}>
                     {loginUser.nickName}
                 </div>
                 }
             </div>
-            {modal && loginUser && <UserModal loginUser={loginUser}/>}
+            {modal && loginUser && <UserModal loginUser={loginUser} setModal={setModal}/>}
         </div>
     );
 }

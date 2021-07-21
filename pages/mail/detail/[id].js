@@ -8,7 +8,6 @@ import MailDetailItem from "../../../components/mailDetail/MailDetailItem";
 export default function MailItem() {
     const router = useRouter()
     const {id} = router.query
-    console.log(id)
 
     const thread = useSelector(state => state.thread.thread)
     const mailList = useSelector(state => state.mail.mailList)
@@ -32,7 +31,7 @@ export default function MailItem() {
     return (
         <Layout>
             <MailDetailHeader/>
-            <div className="px-24 text-3xl pt-6">{title && title}</div>
+            <div className="px-14 text-xl pt-6">{title && title}</div>
             {threadMail && threadMail.map(({id, date, sender, body, receiver}) =>
                 <MailDetailItem key={id} id={id} sender={sender} date={date} body={body} receiver={receiver}/>
             )}

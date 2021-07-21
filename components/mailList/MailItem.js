@@ -38,18 +38,18 @@ function MailItem({body, date, sender, id}) {
     return (
         <div className="flex items-center pl-6 py-3 border-b cursor-pointer hover:shadow-md">
             <div className="flex items-center">
-                <input type="checkbox" className="border-2 transform scale-150 mr-4 cursor-pointer"/>
-                {isStar ? <MdStar size={25} className="mr-4 text-gray-400 cursor-pointer text-yellow-400"
+                <input type="checkbox" className="border-2 transform scale-110 mr-3 cursor-pointer"/>
+                {isStar ? <MdStar size={20} className="mr-3 cursor-pointer text-yellow-400"
                                   onClick={toggleStar}/> :
-                    <MdStarBorder size={25} className="mr-4 text-gray-400 cursor-pointer" onClick={toggleStar}/>}
-                <BiLabel size={25} className="mr-4 text-gray-400 cursor-pointer"/>
+                    <MdStarBorder size={20} className="mr-3 text-gray-400 cursor-pointer" onClick={toggleStar}/>}
+                <BiLabel size={20} className="mr-3 text-gray-400 cursor-pointer"/>
             </div>
             <Link href={`/mail/detail/${id}`}>
-                <ul className="flex items-center font-bold w-full">
-                    <li className="w-1/6">{sender.name}</li>
-                    <li className="w-4/6 mr-10 flex items-center truncate">{body.title}-<strong
-                        className="font-medium text-gray-500 truncate">{body.content}</strong></li>
-                    <li>{stringDate}</li>
+                <ul className="flex items-center justify-between w-full font-bold text-sm">
+                    <li className="w-32 truncate mr-2">{sender.name}</li>
+                    <li className="w-96 flex-1 items-center truncate">{body.title}-<strong
+                        className="text-gray-500 truncate font-medium">{body.content}</strong></li>
+                    <li className="truncate ml-2 mr-6 ">{stringDate}</li>
                 </ul>
             </Link>
         </div>

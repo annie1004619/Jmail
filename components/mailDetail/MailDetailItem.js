@@ -34,44 +34,47 @@ function MailDetailItem({id, sender, body, date, receiver}) {
         setIsStar(!isStar)
     }
 
-    console.log(receiverData)
     return (
         <div className="flex flex-col py-7 ">
             <div className="flex items-center">
-                <div
-                    className={`rounded-full ${sender.color} w-14 h-14 flex items-center justify-center text-xl ml-3 font-semiBold text-white ml-2 cursor-pointer z-30`}>
-                    {sender.nickName}
+                <div style={{width: '50px'}}>
+                    <div
+                        style={{backgroundColor: `${sender.color}`}}
+                        className={`rounded-full w-10 h-10 flex items-center justify-center text-sm font-semiBold text-white ml-2 cursor-pointer`}>
+                        {sender.nickName}
+                    </div>
                 </div>
-                <div className="flex flex-col mx-8 w-11/12">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <div className="mr-1 font-bold text-lg">{sender.name}</div>
+                <div className="flex flex-col mx-3 w-11/12">
+                    <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center w-6/12 truncate">
+                            <div className="mr-1 font-bold">{sender.name}</div>
                             <div className="text-gray-600">{`<${sender.email}>`}</div>
                         </div>
-                        <div className="flex items-center text-gray-500">
+                        <div className="flex items-center text-gray-500 truncate">
                             <div className="mr-5">{strDate}</div>
-                            {isStar ? <MdStar size={25} className="mr-4 cursor-pointer text-yellow-400"
+                            {isStar ? <MdStar size={20} className="mr-4 cursor-pointer text-yellow-400"
                                               onClick={toggleStar}/> :
-                                <MdStarBorder size={25} className="mr-4 cursor-pointer" onClick={toggleStar}/>}
-                            <MdReply size={25} className="mr-4 cursor-pointer" onClick={() => setReply(true)}/>
-                            <MdMoreVert size={25} className="cursor-pointer"/>
+                                <MdStarBorder size={20} className="mr-4 cursor-pointer" onClick={toggleStar}/>}
+                            <MdReply size={20} className="mr-4 cursor-pointer" onClick={() => setReply(true)}/>
+                            <MdMoreVert size={20} className="cursor-pointer"/>
                         </div>
                     </div>
-                    <div className="flex items-center text-gray-600">{receiverData.join(', ')} 에게 <MdArrowDropDown
-                        size={25} className="cursor-pointer"/></div>
+                    <div
+                        className="flex items-center text-gray-600 text-xs">{receiverData.join(', ')} 에게 <MdArrowDropDown
+                        size={18} className="cursor-pointer"/></div>
 
                 </div>
             </div>
-            <div className="px-24 py-10">{body.content}</div>
+            <div className="px-16 py-10 text-sm">{body.content}</div>
             {!reply && !forward &&
-            <div className="flex items-center px-24">
+            <div className="flex items-center px-16">
                 <button
-                    className="flex items-center border-2 rounded-lg w-32 h-12 text-gray-500 text-lg justify-center hover:bg-gray-100 mr-5"
-                    onClick={() => setReply(true)}><MdReply size={25} className="mr-3 cursor-pointer"/>답장
+                    className="flex items-center border rounded-md w-28 h-10 text-gray-500 text-sm justify-center hover:bg-gray-100 mr-5"
+                    onClick={() => setReply(true)}><MdReply size={20} className="mr-3 cursor-pointer"/>답장
                 </button>
                 <button
-                    className="flex items-center border-2 rounded-lg w-32 h-12 text-gray-500 text-lg justify-center hover:bg-gray-100"
-                    onClick={() => setForward(false)}><MdForward size={25} className="mr-3 cursor-pointer"/>전달
+                    className="flex items-center border rounded-md w-28 h-10 text-gray-500 text-sm justify-center hover:bg-gray-100"
+                    onClick={() => setForward(false)}><MdForward size={20} className="mr-3 cursor-pointer"/>전달
                 </button>
             </div>}
             {reply && <Reply sender={sender} setReply={setReply} body={body} threadId={id}/>}

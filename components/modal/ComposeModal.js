@@ -74,19 +74,19 @@ function ComposeModal({closeModal}) {
     }
 
     return (
-        <div className="w-600px absolute bottom-0 right-20 shadow-lg bg-white">
-            <div className="h-12 flex items-center bg-brown px-6 py-7 justify-between rounded-t-xl">
-                <div className="text-white text-lg">새 메일</div>
+        <div className="w-400px absolute bottom-0 right-0 shadow-lg bg-white">
+            <div className="h-5 flex items-center bg-brown px-6 py-5 justify-between rounded-t-xl">
+                <div className="text-white text-sm">새 메일</div>
                 <MdClear size={20} color="#fff" className="cursor-pointer" onClick={closeModal}/>
             </div>
             <div className="flex flex-col">
-                <input type="text" placeholder="받는 사람" className="text-lg mx-6 border-b py-2 outline-none"
+                <input type="text" placeholder="받는 사람" className="text-sm mx-6 border-b py-2 outline-none"
                        value={receiver} onChange={onChangeReceiver}/>
-                <input type="text" placeholder="제목" className="text-lg mx-6 border-b py-2 outline-none" value={title}
+                <input type="text" placeholder="제목" className="text-sm mx-6 border-b py-2 outline-none" value={title}
                        onChange={onChangeTitle}/>
-                <textarea className="mx-6 resize-none h-96 outline-none" value={content} onChange={onChangeContent}/>
+                <textarea className="mx-6 resize-none h-44 outline-none" value={content} onChange={onChangeContent}/>
                 <button
-                    className="mx-6 my-6 flex items-center rounded-lg w-32 h-12 bg-blue-700 text-white text-lg justify-center hover:bg-blue-600"
+                    className="mx-6 my-6 flex items-center rounded-md w-24 h-8 bg-blue-700 text-white text-sm justify-center hover:bg-blue-600"
                     onClick={onSend}>보내기
                 </button>
             </div>

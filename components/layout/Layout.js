@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Header from "./Header";
-import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import ComposeModal from "../modal/ComposeModal";
+import LeftSideBar from "./LeftSideBar/LeftSideBarList";
 
 function Layout({children}) {
     const [modal, setModal] = useState(false);
@@ -13,11 +13,11 @@ function Layout({children}) {
         setModal(false)
     }
     return (
-        <div>
-            <Header/>
-            <div className="flex">
+        <div className="h-screen w-full" style={{minWidth: '680px'}}>
+            <Header />
+            <div className="flex justify-between">
                 <LeftSideBar openModal={openModal}/>
-                <div className="w-4/5 h-full">{children}</div>
+                <div className="flex-1 overflow-y-auto h-screen">{children}</div>
                 <RightSideBar/>
             </div>
             {modal && <ComposeModal closeModal={closeModal}/>}
