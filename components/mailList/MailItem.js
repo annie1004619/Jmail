@@ -5,13 +5,16 @@ import {BiLabel} from "react-icons/bi";
 import {getStringDate} from "../../lib/getStringDate";
 import {useDispatch, useSelector} from "react-redux";
 import {addStar, removeStar} from "../../lib/slices/loginUserSlice";
+import {useRouter} from "next/router";
 
 function MailItem({body, date, sender, id}) {
+    const router = useRouter()
+    const {category} = router.query
+
     const dispatch = useDispatch();
     const [isStar, setIsStar] = useState(false)
     const stringDate = getStringDate(date * 1000)
     const star = useSelector(state => state.loginUser.star)
-    console.log(star)
 
     useEffect(() => {
         if (!star) return
@@ -44,7 +47,7 @@ function MailItem({body, date, sender, id}) {
                     <MdStarBorder size={20} className="mr-3 text-gray-400 cursor-pointer" onClick={toggleStar}/>}
                 <BiLabel size={20} className="mr-3 text-gray-400 cursor-pointer"/>
             </div>
-            <Link href={`/mail/detail/${id}`}>
+            <Link href={`/mail/${category}/${id}`}>
                 <ul className="flex items-center justify-between w-full font-bold text-sm">
                     <li className="w-32 truncate mr-2">{sender.name}</li>
                     <li className="w-96 flex-1 items-center truncate">{body.title}-<strong
