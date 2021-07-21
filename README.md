@@ -15,5 +15,6 @@ https://mail.jiwondev.com/
 ### 사용한 기술
 - next.js
 - redux-toolkit
+- tailwind css
 - vercel deploy
 - route 53
